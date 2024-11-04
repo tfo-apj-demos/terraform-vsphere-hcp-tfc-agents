@@ -15,16 +15,19 @@ terraform {
 
     hcp = {
       source = "hashicorp/hcp"
-      version = "~> 0.97.0"
+      version = "~> 0.97"
     }
   }
 
 
   cloud {
     organization = "tfo-apj-demos"
+    
     workspaces {
       name = "vsphere-hcp-tfc-agents"
+      project = "10 - gcve-foundations"
     }
+  
   }
 }
 
