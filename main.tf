@@ -44,7 +44,7 @@ module "vm" {
   gateway         = "172.21.12.1"
   dns_suffix_list = ["hashicorp.local"]
 
-  template = data.hcp_packer_artifact.this.cloud_image_id
+  template = data.hcp_packer_artifact.this.external_identifier
 
   userdata = templatefile("${path.module}/templates/userdata.yaml.tmpl", {
     agent_token = tfe_agent_token.this.token
