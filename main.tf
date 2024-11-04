@@ -1,7 +1,7 @@
 data "hcp_packer_artifact" "this" {
   bucket_name     = "docker-ubuntu-2204"
-  channel         = "latest"
-  cloud_provider  = "vsphere"
+  channel_name         = "latest"
+  platform  = "vsphere"
   region          = "Datacenter"
 }
 

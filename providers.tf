@@ -12,11 +12,18 @@ terraform {
       source  = "vmware/nsxt"
       version = "~> 3.4"
     }
+
+    hcp = {
+      source = "hashicorp/hcp"
+      version = "~> 0.97.0"
+    }
   }
+
+
   cloud {
     organization = "tfo-apj-demos"
     workspaces {
-      name = "vsphere-tfc-agents"
+      name = "vsphere-hcp-tfc-agents"
     }
   }
 }
