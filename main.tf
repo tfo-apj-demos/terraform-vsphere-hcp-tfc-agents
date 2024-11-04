@@ -20,7 +20,7 @@ data "nsxt_policy_ip_pool" "this" {
 }
 resource "nsxt_policy_ip_address_allocation" "this" {
   count        = var.agent_count
-  display_name = "tfc-agent-${count.index}"
+  display_name = "hcp-tfc-agent-${count.index}"
   pool_path    = data.nsxt_policy_ip_pool.this.path
 }
 
@@ -48,7 +48,7 @@ module "vm" {
 
   userdata = templatefile("${path.module}/templates/userdata.yaml.tmpl", {
     agent_token = tfe_agent_token.this.token
-    agent_name  = "tfc-agent-${count.index}"
+    agent_name  = "hcp-tfc-agent-${count.index}"
     krb5_conf = base64encode(templatefile("${path.module}/templates/krb5.conf.tmpl", {}))
     enable_request_forwarding = var.enable_request_forwarding
     
