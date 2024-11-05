@@ -33,9 +33,9 @@ module "vm" {
   hostname          = "hcp-tfc-agent-${count.index}"
   datacenter        = "Datacenter"
   cluster           = "cluster"
-  resource_pool     = "Demo Workloads"
+  resource_pool     = "Demo Management"
   primary_datastore = "vsanDatastore"
-  folder_path       = "Demo Workloads"
+  folder_path       = "Demo Management"
   networks = {
     "seg-general" : "${nsxt_policy_ip_address_allocation.this[count.index].allocation_ip}/22"
   }
