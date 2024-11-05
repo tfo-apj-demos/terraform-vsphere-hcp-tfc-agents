@@ -36,3 +36,7 @@ provider "tfe" {
 }
 
 provider "vsphere" {}
+
+provider "nsxt" {
+  max_retries = 3
+}
