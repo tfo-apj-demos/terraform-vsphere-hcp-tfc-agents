@@ -34,7 +34,7 @@ module "vm" {
   datacenter        = "Datacenter"
   cluster           = "cluster"
   primary_datastore = "vsanDatastore"
-  folder_path       = "management"
+  folder_path       = "Demo Management"
   networks = {
     "seg-general" : "${nsxt_policy_ip_address_allocation.this[count.index].allocation_ip}/22"
   }
