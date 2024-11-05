@@ -33,6 +33,7 @@ module "vm" {
   hostname          = "hcp-tfc-agent-${count.index}"
   datacenter        = "Datacenter"
   cluster           = "cluster"
+  resource_pool     = "Demo Management"
   primary_datastore = "vsanDatastore"
   folder_path       = "Demo Management"
   networks = {
