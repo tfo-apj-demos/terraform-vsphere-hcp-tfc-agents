@@ -7,5 +7,5 @@ write_files:
       ${krb5_conf}
 
 runcmd:
-  - docker pull hashicorp/tfc-agent:latest
+  - docker pull srlynch1/tfc-agent:latest #this tfc-agent include vault root ca certs
   - docker run -e TFC_AGENT_TOKEN=${agent_token} -e TFC_AGENT_NAME=${agent_name} -e TFC_AGENT_REQUEST_FORWARDING=${enable_request_forwarding} --mount type=bind,source=/etc/krb5.conf,target=/etc/krb5.conf --restart always hashicorp/tfc-agent
