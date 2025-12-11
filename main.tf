@@ -29,7 +29,7 @@ module "vm" {
   source  = "app.terraform.io/tfo-apj-demos/virtual-machine/vsphere"
   version = "~> 1.4"
 
-  hostname          = "hcp-tfc-agent${count.index}"
+  hostname          = "hcp-tfc-agent1${count.index}"
   datacenter        = "Datacenter"
   cluster           = "cluster"
   resource_pool     = "Demo Management"
