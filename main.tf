@@ -7,7 +7,6 @@ data "hcp_packer_artifact" "this" {
 
 resource "tfe_agent_pool" "this" {
   name                = "gcve_agent_pool2"
-  organization_scoped = true
 }
 
 resource "tfe_agent_token" "this" {
