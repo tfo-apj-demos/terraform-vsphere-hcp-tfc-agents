@@ -21,7 +21,7 @@ terraform {
   cloud {
     organization = "tfo-apj-demos"
     workspaces {
-      name    = "terraform-vsphere-hcp-tfc-agents2"
+      name    = "terraform-vsphere-hcp-tfc-agents-pool2"
       project = "10 - gcve-foundations"
     }
   }
