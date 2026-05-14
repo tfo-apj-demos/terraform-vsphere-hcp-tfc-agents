@@ -5,13 +5,14 @@ data "hcp_packer_artifact" "this" {
   region       = "Datacenter"
 }
 
-resource "tfe_agent_pool" "this" {
-  name = var.agent_pool_name
+data "tfe_agent_pool" "this" {
+  name              = var.agent_pool_name
+  organization      = var.organization
 }
 
 resource "tfe_agent_token" "this" {
-  agent_pool_id = tfe_agent_pool.this.id
-  description   = "agent token for vsphere environment"
+  agent_pool_id = data.tfe_agent_pool.this.id
+  description   = "agent token for vsphere environment - pool1 (manages pool3 agents)"
 }
 
 data "nsxt_policy_ip_pool" "this" {
