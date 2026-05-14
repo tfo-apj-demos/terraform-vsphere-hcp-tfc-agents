@@ -19,7 +19,7 @@ variable "enable_request_forwarding" {
 variable "agent_pool_name" {
   description = "Name of the HCP Terraform agent pool to manage."
   type        = string
-  default     = "gcve_agent_pool"
+  default     = "gcve_agent_pool1"
 }
 
 variable "hostname_prefix" {

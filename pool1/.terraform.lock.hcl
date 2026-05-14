@@ -3,8 +3,9 @@
 
 provider "registry.terraform.io/hashicorp/hcp" {
   version     = "0.97.0"
-  constraints = "~> 0.97.0"
+  constraints = "~> 0.97"
   hashes = [
+    "h1:cTPFiQdmeh5CKHZAh2QdnhUINjK3T+PNrTtaJTTPz0c=",
     "h1:wQ3T9K2AplwLwvR+WpkQZHgXvKWQxT3cZqRIVGBDT2E=",
     "zh:0276d1adbed4b45d0a1e9c6694dd855a937e04a595a9d2289e72df4fa6e3e7f7",
     "zh:10f591cb09c523ed05889de750f0d9ec094c80386e187ee78ad8ed516ccef66a",
@@ -24,6 +25,7 @@ provider "registry.terraform.io/hashicorp/hcp" {
 provider "registry.terraform.io/hashicorp/random" {
   version = "3.6.3"
   hashes = [
+    "h1:In4XBRMdhY89yUoTUyar3wDF28RJlDpQzdjahp59FAk=",
     "h1:zG9uFP8l9u+yGZZvi5Te7PV62j50azpgwPunq2vTm1E=",
     "zh:04ceb65210251339f07cd4611885d242cd4d0c7306e86dda9785396807c00451",
     "zh:448f56199f3e99ff75d5c0afacae867ee795e4dfda6cb5f8e3b2a72ec3583dd8",
@@ -45,6 +47,7 @@ provider "registry.terraform.io/hashicorp/tfe" {
   constraints = "~> 0.49"
   hashes = [
     "h1:Imh9PHOAaBJFBbyiKHYoItWjtWrrSolE5444EUYDgRU=",
+    "h1:rdMvrMmI2/RDb0+yyQ/csOJriSmrT8wguP5pkjAzUkI=",
     "zh:39d4513f023d57c83f3d1e659db6093dd661ef34f7b5d8025b8155a19244e8e4",
     "zh:4c2183c32356c0345c86b063c0bc9276fe704c9fc5c94ba9b45394de9d22a08a",
     "zh:55ec15a226636e48dc17bad05781c2f679c9fd40940aff3f8109e6c2d4869e3e",
@@ -62,9 +65,10 @@ provider "registry.terraform.io/hashicorp/tfe" {
 
 provider "registry.terraform.io/hashicorp/vsphere" {
   version     = "2.10.0"
-  constraints = "~> 2.0, ~> 2.5"
+  constraints = "~> 2.5"
   hashes = [
     "h1:F0tX4A+w9DpxIj6+BMSEZ+H86EaNNgLYlOI7ksB71mM=",
+    "h1:OwByuyO8jktZzIGKqa5I0O+zkhcTzNm7NJp2HKlwdbU=",
     "zh:01dfd5bee0824de89202dc8689beef7465ddf1a104269826e69918e61bc40161",
     "zh:0fa82a384b25a58b65523e0ea4768fa1212b1f5cfc0c9379d31162454fedcc9d",
     "zh:171f9cd2008c75455b6797c7d0ca92fcdf23fb4dd47030e0e2eb4fa06cf45a57",
@@ -84,6 +88,7 @@ provider "registry.terraform.io/vmware/nsxt" {
   version     = "3.7.0"
   constraints = "~> 3.4"
   hashes = [
+    "h1:h7nZzv0zZ4RGr0tthbaBqdj+AuH0i6McNOYN/di2Rvg=",
     "h1:oc0/HTmgoKK0bB23yc5xNaCq4/u++VDgTSfCdMf3S2s=",
     "zh:2e3c7294f7a9d011e79c70a4bde1b62b254a7a02cb8b8663f47460ea86a06e1c",
     "zh:384ceaae394686f5841a04d5ff951de7523ddc401688844e8083004270ecd3da",
@@ -99,5 +104,27 @@ provider "registry.terraform.io/vmware/nsxt" {
     "zh:d610ac43539d68bc404f4a9858012302591c026e56ae4ee947b60dce3c2ee39b",
     "zh:ec52e1ac3aca04cb06e168c2019194cd05b8feef6f44a114a3476fb9ce587b2a",
     "zh:fb2ddcb6adb9ffab7b08b31d72ce418c5790a632770ab53435a300e988836d0f",
+  ]
+}
+
+provider "registry.terraform.io/vmware/vsphere" {
+  version     = "2.16.0"
+  constraints = "~> 2.0"
+  hashes = [
+    "h1:VhWz9Y92YEWN0RbYetfQhYLKEtTBuw1UKcStwRxaxqg=",
+    "zh:04922e5403d8cf4ef77420e8f9f7237b822cd8995dead87e2627e287ad8f2301",
+    "zh:1a2e8faa46e37e73425ff9785f0f46195676314440556c42730b93437a8252d6",
+    "zh:2d5a8ff7002ac32dc8c05c56403410200b8f3398c26ceba6a005c12f0d92b788",
+    "zh:4f0ff87729cf453858472e529b4b5edd65bd886a7854207e195736a3e23127a6",
+    "zh:6d550f528fbc0a13558d5b719faf5cc0ce2203962c1a7f6b59327585703371b1",
+    "zh:789c00cdcd207d95667e294e0dd7266432dcaa94b9a81cc972388efd93595a8d",
+    "zh:7ddc676fa8805d80cff8447116c76b000a9270cea5c1c960dd34cbbe360ffec6",
+    "zh:8262df7c3ea58564e89f8d52d900fdd0c1c2e594a5ec07c7a781589d817f259e",
+    "zh:99e5df2e561b6984eb245feb1737542dbd4f3dc6cfe83672268e34ce3c417ab0",
+    "zh:9b12af85486a96aedd8d7984b0ff811a4b42e3d88dad1a3fb4c0b580d04fa425",
+    "zh:b61d511ada5efdb14336c6ff8fa7eea73e3ba50bf67d535153830de7c4e83fe0",
+    "zh:d897781524f4493c94115155fe71b6d73feb0718e5ba6a362f94b91811b67928",
+    "zh:e3363005f4248fb41eb92c4eca2a4bfbbe2cd91ad44bc40c1ec775199855b8fc",
+    "zh:f4e81e188bd2c82921c6811336c6df46bb53fb84ac44c5e3e5e2117bde3f44ab",
   ]
 }
