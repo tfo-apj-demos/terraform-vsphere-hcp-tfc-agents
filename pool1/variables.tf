@@ -17,9 +17,9 @@ variable "enable_request_forwarding" {
 }
 
 variable "agent_pool_name" {
-  description = "Name of the HCP Terraform agent pool to manage."
+  description = "Name of the existing HCP Terraform agent pool that the agent0/1/2 VMs register against. Referenced read-only via data source - this workspace does not own the pool resource."
   type        = string
-  default     = "gcve_agent_pool1"
+  default     = "gcve_agent_pool3"
 }
 
 variable "hostname_prefix" {
