@@ -1,0 +1,24 @@
+[libdefaults]
+  default_realm = HASHICORP.LOCAL
+  default_tkt_enctypes = aes256-cts aes256-cts-hmac-sha1-96
+  default_tgs_enctypes = aes256-cts aes256-cts-hmac-sha1-96
+  dns_lookup_kdc = true
+  dns_lookup_realm = true
+
+[realms]
+  HASHICORP.LOCAL = {
+    kdc = dc-0.hashicorp.local
+    admin_server = dc-0.hashicorp.local
+    master_kdc = dc-0.hashicorp.local
+    default_domain = hashicorp.local
+  }
+
+[domain_realm]
+  hashicorp.local = HASHICORP.LOCAL
+  .hashicorp.local = HASHICORP.LOCAL
+
+[capaths]
+
+[logging]
+  kdc = SYSLOG:INFO
+  admin_server = FILE=/var/log/kadm5.log

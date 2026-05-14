@@ -1,12 +1,12 @@
 data "hcp_packer_artifact" "this" {
-  bucket_name     = "docker-ubuntu-2204"
-  channel_name         = "latest"
-  platform  = "vsphere"
-  region          = "Datacenter"
+  bucket_name  = "docker-ubuntu-2204"
+  channel_name = "latest"
+  platform     = "vsphere"
+  region       = "Datacenter"
 }
 
 resource "tfe_agent_pool" "this" {
-  name                = "gcve_agent_pool2"
+  name = var.agent_pool_name
 }
 
 resource "tfe_agent_token" "this" {
@@ -17,9 +17,10 @@ resource "tfe_agent_token" "this" {
 data "nsxt_policy_ip_pool" "this" {
   display_name = "10 - gcve-foundations"
 }
+
 resource "nsxt_policy_ip_address_allocation" "this" {
   count        = var.agent_count
-  display_name = "hcp-tfc-agent-${count.index}"
+  display_name = "${var.hostname_prefix}-${count.index}"
   pool_path    = data.nsxt_policy_ip_pool.this.path
 }
 
@@ -29,7 +30,7 @@ module "vm" {
   source  = "app.terraform.io/tfo-apj-demos/virtual-machine/vsphere"
   version = "~> 1.4"
 
-  hostname          = "hcp-tfc-agent1${count.index}"
+  hostname          = "${var.hostname_prefix}${count.index}"
   datacenter        = "Datacenter"
   cluster           = "cluster"
   resource_pool     = "Demo Management"
@@ -47,11 +48,11 @@ module "vm" {
   template = data.hcp_packer_artifact.this.external_identifier
 
   userdata = templatefile("${path.module}/templates/userdata.yaml.tmpl", {
-    agent_token = tfe_agent_token.this.token
-    agent_name  = "hcp-tfc-agent-${count.index}"
-    krb5_conf = base64encode(templatefile("${path.module}/templates/krb5.conf.tmpl", {}))
+    agent_token               = tfe_agent_token.this.token
+    agent_name                = "${var.hostname_prefix}-${count.index}"
+    krb5_conf                 = base64encode(templatefile("${path.module}/templates/krb5.conf.tmpl", {}))
     enable_request_forwarding = var.enable_request_forwarding
-    
+    agent_image               = var.agent_image
   })
   tags = {
     "application" = "tfc-agent"
