@@ -6,8 +6,8 @@ data "hcp_packer_artifact" "this" {
 }
 
 data "tfe_agent_pool" "this" {
-  name              = var.agent_pool_name
-  organization      = var.organization
+  name         = var.agent_pool_name
+  organization = var.organization
 }
 
 resource "tfe_agent_token" "this" {
@@ -31,7 +31,7 @@ module "vm" {
   source  = "app.terraform.io/tfo-apj-demos/virtual-machine/vsphere"
   version = "~> 1.4"
 
-  hostname          = "${var.hostname_prefix}${count.index}"
+  hostname          = "${var.hostname_prefix}-${count.index}"
   datacenter        = "Datacenter"
   cluster           = "cluster"
   resource_pool     = "Demo Management"

@@ -7,7 +7,7 @@ variable "organization" {
 variable "agent_count" {
   description = "Number of Terraform agents to deploy."
   type        = number
-  default     = 1
+  default     = 3
 }
 
 variable "enable_request_forwarding" {
@@ -17,15 +17,15 @@ variable "enable_request_forwarding" {
 }
 
 variable "agent_pool_name" {
-  description = "Name of the existing HCP Terraform agent pool that the agent0/1/2 VMs register against. Referenced read-only via data source - this workspace does not own the pool resource."
+  description = "Name of the existing HCP Terraform agent pool that the pool1 VMs (hcp-tfc-agent-1-0/1/2) register against. Referenced read-only via data source — this workspace does not own the pool resource. The pool is shared with all other workspaces in the TFC org."
   type        = string
   default     = "gcve_agent_pool3"
 }
 
 variable "hostname_prefix" {
-  description = "Prefix for VM hostnames. count.index is appended."
+  description = "Prefix for VM hostnames and agent names. `-<count.index>` is appended (e.g. `hcp-tfc-agent-1-0`)."
   type        = string
-  default     = "hcp-tfc-agent"
+  default     = "hcp-tfc-agent-1"
 }
 
 variable "agent_image" {
