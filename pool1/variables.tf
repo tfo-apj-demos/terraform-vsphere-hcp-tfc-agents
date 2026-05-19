@@ -7,7 +7,7 @@ variable "organization" {
 variable "agent_count" {
   description = "Number of Terraform agents to deploy."
   type        = number
-  default     = 3
+  default     = 1
 }
 
 variable "enable_request_forwarding" {
