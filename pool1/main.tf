@@ -12,7 +12,7 @@ data "tfe_agent_pool" "this" {
 
 resource "tfe_agent_token" "this" {
   agent_pool_id = data.tfe_agent_pool.this.id
-  description   = "agent token for vsphere environment - pool1 (manages pool3 agents)"
+  description   = "agent token for vsphere environment - pool1"
 }
 
 data "nsxt_policy_ip_pool" "this" {
