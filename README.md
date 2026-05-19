@@ -22,6 +22,8 @@ pool2/
   ... same shape, different pool name, different hostname prefix
 ```
 
+Naming convention: VM hostnames and the agent names registered with HCP Terraform use `hcp-tfc-agent-<pool-number>-<index>`. So pool1 produces `hcp-tfc-agent-1-0`, `hcp-tfc-agent-1-1`, `hcp-tfc-agent-1-2`, and pool2 produces `hcp-tfc-agent-2-0/1/2`. The hostname and the agent-registration name match exactly (no split format).
+
 Each `poolN/` subdir is an independent Terraform root module that maps 1:1 to its own HCP Terraform workspace. The workspaces are VCS-driven with `working-directory` and `trigger-prefixes` set so that a commit touching only `pool1/` fires only the pool1 workspace, not pool2.
 
 ## Pool ownership pattern
