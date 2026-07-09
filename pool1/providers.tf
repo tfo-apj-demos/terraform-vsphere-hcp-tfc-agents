@@ -5,7 +5,11 @@ terraform {
       version = "~> 0.49"
     }
     vsphere = {
-      source  = "hashicorp/vsphere"
+      # Provider moved from hashicorp/vsphere to the current vmware/vsphere
+      # namespace. Aligning the root with the shared VM module (which already
+      # uses vmware/vsphere) so the module inherits this Vault-wired provider
+      # instead of falling through to the static VSPHERE_PASSWORD env var.
+      source  = "vmware/vsphere"
       version = "~> 2.5"
     }
     nsxt = {
