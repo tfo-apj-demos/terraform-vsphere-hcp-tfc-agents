@@ -29,7 +29,7 @@ module "vm" {
   count = var.agent_count
 
   source  = "app.terraform.io/tfo-apj-demos/virtual-machine/vsphere"
-  version = "~> 1.4"
+  version = "~> 2.0"
 
   hostname          = "${var.hostname_prefix}-${count.index}"
   datacenter        = "Datacenter"
